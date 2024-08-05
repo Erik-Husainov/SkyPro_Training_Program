@@ -1,4 +1,4 @@
-def get_mask_card_number(card_num: int) -> str:
+def get_mask_card_number(card_num: str) -> str:
     '''Функция, возвращающая маску номера по правилу ХХХХ ХХ** **** ХХХХ'''
     if len(card_num) == 16:
         card_num = str(card_num)
@@ -6,7 +6,7 @@ def get_mask_card_number(card_num: int) -> str:
     return 'Недействительный номер карты'
 
 
-def get_mask_account(acc_num: int) -> str:
+def get_mask_account(acc_num: str) -> str:
     '''Функция, возвращающая маску номера по правилу **ХХХХ'''
     if len(acc_num) > 5:
         acc_num = str(acc_num)
