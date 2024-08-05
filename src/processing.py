@@ -8,3 +8,8 @@ def filter_by_state(dicts_list: list, state: str = 'EXECUTED'):
     return [i for i in dicts_list if i['state'] == state]
 
 
+def sort_by_date(dicts_list: list, sort_way: bool = True):
+    return [sorted(dicts_list, key=lambda x: get_date(x['date']), reverse=(not(sort_way)))]
+
+
+
