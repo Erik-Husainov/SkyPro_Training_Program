@@ -1,13 +1,15 @@
 import pytest
-from src.masks import *
+
+from src.masks import get_mask_account, get_mask_card_number
 
 
-def test_get_mask_card_number():
-    assert get_mask_card_number('1234567890123456') == '1234 56** **** 3456'
-    assert get_mask_card_number('12345678') == 'Недействительный номер карты'
-    assert get_mask_card_number('') == 'Недействительный номер карты'
+@pytest.mark.parametrize('card_num, expected_result', [('1234567890123456', '1234 56** **** 3456'),
+                                                       ('12345678', 'Недействительный номер карты'),
+                                                       ('', 'Недействительный номер карты')])
+def test_get_mask_card_number(card_num: str, expected_result: str) -> None:
+    assert get_mask_card_number(card_num) == expected_result
 
 
-def test_get_mask_account():
-    assert get_mask_account('123456789') == '**6789'
-    assert get_mask_account('') == 'Недействительный номер счета'
+@pytest.mark.parametrize('acc_num, expected_result', [('123456789', '**6789'), ('', 'Недействительный номер счета')])
+def test_get_mask_account(acc_num: str, expected_result: str) -> None:
+    assert get_mask_account(acc_num) == expected_result
