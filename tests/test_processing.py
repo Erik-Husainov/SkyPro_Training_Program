@@ -2,8 +2,6 @@ import pytest
 
 from src.processing import filter_by_state, sort_by_date
 
-from .fixture import coll
-
 
 @pytest.mark.parametrize('state,  expected', [('EXECUTED', [{'id': 4, 'state': 'EXECUTED', 'date': '2019-07-03T'},
                                                             {'id': 9, 'state': 'EXECUTED', 'date': '2018-06-30T'}]),
