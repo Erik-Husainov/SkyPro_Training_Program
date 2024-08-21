@@ -19,6 +19,14 @@ pip install -r requirements.txt
 pytest .\tests\test_generators.py
 ```
 
+## Декораторы:
+Добавлен декоратор log. Код можно посмотреть в src/decorators.py
+
+Запуск теста декоратора:
+```
+pytest .\tests\test_decorators.py
+```
+
 ## Тестирование:
 Данный проект покрыт тестами на более чем 80%.
 Для запуска тестов запустите команду:
