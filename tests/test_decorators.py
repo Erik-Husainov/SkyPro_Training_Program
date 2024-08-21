@@ -14,7 +14,7 @@ def test_log(capsys) -> None:
     captured = capsys.readouterr()
     assert captured.out == ('An error occurred while the function was running: '
                             'test_log.<locals>.example_sum_func() missing 1 required positional '
-                            'argument: \'y\'. Input data: (1,)\n')
+                            'argument: \'y\'. Input data: (1,), {}; filename: None\n')
 
     @log()
     def example_sum_text(str_: str) -> str:
