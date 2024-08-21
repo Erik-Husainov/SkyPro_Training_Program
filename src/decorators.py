@@ -9,12 +9,18 @@ def log(filename=None):
                 result = func(*args, **kwargs)
                 text = f'Function {func.__name__} is working. Result: {result}'
             except Exception as error:
-                text = f'An error occurred while the function was running: {str(error)}. Input data: {args}'
+                text = f'An error occurred while the function was running: {str(error)}. Input data: {args}, {kwargs}; filename: {filename}'
             if filename:
-                f = open(filename, 'w')
-                f.write(text)
+                f = open(filename, 'a')
+                f.write(text+'\n')
                 f.close()
             else:
                 print(text)
         return wrapper
     return process
+
+@log(filename='ret.txt')
+def funcv(x, y):
+    return x + y
+
+funcv(1)
