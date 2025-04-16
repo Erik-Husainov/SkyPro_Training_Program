@@ -13,7 +13,7 @@ def log(filename=None):
                         f' filename: {filename}')
             if filename:
                 f = open(filename, 'a')
-                f.write(text+'\n')
+                f.write(text + '\n')
                 f.close()
             else:
                 print(text)
