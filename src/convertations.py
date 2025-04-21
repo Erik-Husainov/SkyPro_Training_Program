@@ -10,7 +10,6 @@ def csv_to_dict(file_path) -> list:
         reader = csv.DictReader(file, delimiter=';')
         for column in reader:
             csv_dicts_list.append(column)
-
         return csv_dicts_list
 
 
