@@ -5,8 +5,13 @@ def filter_by_currency(transactions: list, currency: str = 'USD') -> Generator[l
     """Функция принимает на вход список транзакций и необязательный аргумент currency и возвращает
     только те транзакции, у которых соответствующий currency"""
     for transaction in transactions:
-        if transaction['operationAmount']['currency']['code'] == currency:
-            yield transaction
+        if 'operationAmount' in transaction:
+            if transaction['operationAmount']['currency']['code'] == currency:
+                yield transaction
+        else:
+            if transaction['currency_code'] == currency:
+                yield transaction
+
 
 
 def transaction_descriptions(transactions: list) -> Generator[list, None, None]:
@@ -21,3 +26,4 @@ def card_number_generator(start: int, end: int) -> Generator[str, None, None]:
         card_num = "{:016d}".format(i)
         card_num = ' '.join(card_num[j:j + 4] for j in range(0, len(card_num), 4))
         yield card_num
+
