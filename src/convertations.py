@@ -14,8 +14,9 @@ def csv_to_dict(file_path) -> list:
 
 
 def xlsx_to_dict(file_path) -> list:
-    """Функция принимает Excel-файл и конверитует в список словарей"""
+    """Функция принимает Excel-файл и конвертирует в список словарей"""
 
     df = pd.read_excel(file_path)
     dict_list = df.to_dict('records')
     return dict_list
+

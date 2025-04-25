@@ -2,7 +2,7 @@ import logging
 
 
 logger = logging.getLogger(__name__)
-file_handler = logging.FileHandler('../logs/masks.log', mode='w')
+file_handler = logging.FileHandler('C:/Users/Пользователь/PycharmProjects/pythonPoetry/logs/utils.log', mode='w')
 file_formatter = logging.Formatter('masks %(asctime)s %(levelname)s: %(message)s')
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
@@ -31,4 +31,3 @@ def get_mask_account(acc_num: str) -> str:
     logger.error('invalid number')
     return 'Недействительный номер счета'
 
-print(get_mask_card_number('1234567812345678'))
